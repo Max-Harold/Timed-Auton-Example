@@ -7,9 +7,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.auton.ExampleAuton;
+import frc.robot.commands.auton.ExampleAuton;
 
 import static frc.robot.RobotContainer.chassis;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -18,7 +19,6 @@ import static frc.robot.RobotContainer.chassis;
  * project.
  */
 public class Robot extends TimedRobot {
-  private Command m_exampleAuton = new ExampleAuton();
 
   private Command m_autonomousCommand;
 
@@ -61,7 +61,7 @@ public class Robot extends TimedRobot {
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = m_exampleAuton;
+    m_autonomousCommand = m_robotContainer.getAuton();
 
     // schedule the autonomous command (example)
     if (m_autonomousCommand != null) {

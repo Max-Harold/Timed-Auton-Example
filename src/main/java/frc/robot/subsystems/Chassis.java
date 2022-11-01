@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.chassis;
+package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
@@ -22,7 +22,6 @@ public class Chassis extends SubsystemBase {
   public Chassis() {
     // initialise and invert the motors
     L_Motor = new WPI_TalonFX(Constants.L_MOTOR_ID);
-    L_Motor.setInverted(true);
     R_Motor = new WPI_TalonFX(Constants.R_MOTOR_ID);
     R_Motor.setInverted(true);
 
@@ -34,6 +33,9 @@ public class Chassis extends SubsystemBase {
     drive.feed();
   }
 
+  public void drive(double fwd, double turn) {
+    drive.arcadeDrive(fwd, turn);
+  }
 
   public void forward(double fwd) {
     drive.arcadeDrive(fwd, 0);

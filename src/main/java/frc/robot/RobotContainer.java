@@ -6,8 +6,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.chassis.Chassis;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.auton.ExampleAuton;
+import frc.robot.subsystems.Chassis;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -28,5 +29,9 @@ public class RobotContainer {
   }
 
   private void configureButtonBindings() {}
+
+  public Command getAuton() {
+    return new ExampleAuton();
+  }
 
 }
